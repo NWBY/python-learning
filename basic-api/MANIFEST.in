@@ -1,0 +1,4 @@
+include distroly/schema.sql
+graft distroly/static
+graft distroly/templates
+global-exclude *.pyc

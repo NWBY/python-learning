@@ -16,11 +16,10 @@
           <div class="about">by {{ distro['username'] }} on {{ distro['created'].strftime('%Y-%m-%d') }}</div>
           <p>{{ distro['description'] }}</p>
         </div>
-        {% if g.user['id'] == distro['author_id'] %}
+        {% if g.user['id'] == distro['user_id'] %}
           <a class="action" href="{{ url_for('distro.update', id=distro['id']) }}">Edit</a>
         {% endif %}
       </header>
-      <p class="body">{{ distro['body'] }}</p>
     </article>
     {% if not loop.last %}
       <hr>

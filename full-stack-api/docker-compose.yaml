@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  token-tracker-db:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: token-tracker
+    ports:
+      - "5434:5432"
+    volumes:
+      - "token-tracker-data:/var/lib/postgresql/data/"
+
+volumes:
+  token-tracker-data:

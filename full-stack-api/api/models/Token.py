@@ -25,6 +25,14 @@ class Token(db.Model):
         unique=False,
         nullable=True
     )
+    total_supply = db.Column(
+        db.Integer,
+        nullable=True
+    )
+    market_cap = db.Column(
+        db.Integer,
+        nullable=True
+    )
     created_at = db.Column(
         db.DateTime,
         index=False,

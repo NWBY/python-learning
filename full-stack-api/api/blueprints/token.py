@@ -12,7 +12,7 @@ def index():
     
     return jsonify(allTokens)
 
-@bp.route('/', methods=('POST'))
+@bp.route('/', methods=['POST'])
 def store():
     data = request.json
     

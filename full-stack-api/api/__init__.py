@@ -13,7 +13,7 @@ def init_app():
         # Register routes    
         
         # Register blueprints
-        from blueprints import token
+        from .blueprints import token
         app.register_blueprint(token.bp)
         
         db.create_all()

@@ -6,7 +6,7 @@ def app():
     app = init_app()
     app.config.update({
         "TESTING": True,
-        "SQLALCHEMY_DATABASE_URI": 'postgresql://test:secret@localhost:5435/token-tracker-test'
+        "SQLALCHEMY_DATABASE_URI": 'postgresql://test:secret@127.0.0.1:5435/token-tracker-test'
     })
     
     db.create_all()

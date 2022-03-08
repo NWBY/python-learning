@@ -1,18 +1,18 @@
 import pytest
+import os
 from api import init_app, db
 
 @pytest.fixture()
-def app():
+def app(monkeypatch):
+    monkeypatch.setenv('TESTING', 'True')
+
     app = init_app()
-    app.config.update({
-        "TESTING": True,
-        "SQLALCHEMY_DATABASE_URI": 'postgresql://test:secret@127.0.0.1:5435/token-tracker-test'
-    })
     
-    db.create_all()
-    yield app
-    db.session.remove()
-    db.drop_all()
+    with app.app_context():
+        db.create_all()
+        yield app
+        db.session.remove()
+        db.drop_all()
     
 @pytest.fixture()
 def client(app):

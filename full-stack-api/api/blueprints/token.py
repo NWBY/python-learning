@@ -1,13 +1,14 @@
 from flask import (
     Blueprint, request, jsonify, abort
 )
-from api.models import Token
+from api.models.Token import Token
 from api import db
 
 bp = Blueprint('token', __name__, url_prefix='/tokens')
 
 @bp.route('/')
 def index():
+    print(Token)
     allTokens = Token.query.all()
     
     return jsonify(allTokens)

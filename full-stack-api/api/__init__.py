@@ -1,11 +1,15 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 db = SQLAlchemy()
 
 def init_app():
     app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object('config.Config')
+    if os.environ.get('TESTING') == 'True':
+        app.config.from_object('config.TestingConfig')
+    else:
+        app.config.from_object('config.DevConfig')
     
     db.init_app(app)
     

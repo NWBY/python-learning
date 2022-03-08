@@ -7,6 +7,7 @@ def app(monkeypatch):
     monkeypatch.setenv('TESTING', 'True')
 
     app = init_app()
+    app.db = db
     
     with app.app_context():
         db.create_all()
@@ -21,3 +22,4 @@ def client(app):
 @pytest.fixture()
 def runner(app):
     return app.test_cli_runner()
+    

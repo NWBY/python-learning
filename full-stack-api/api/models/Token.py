@@ -1,6 +1,16 @@
+import datetime
 from api import db
+from dataclasses import dataclass
 
+@dataclass
 class Token(db.Model):
+    id: int
+    name: str
+    unit_name: str
+    description: str
+    total_supply: int
+    market_cap: int
+    created_at: datetime
     
     __tablename__ = 'tokens'
     id = db.Column(
@@ -26,11 +36,11 @@ class Token(db.Model):
         nullable=True
     )
     total_supply = db.Column(
-        db.Integer,
+        db.BigInteger,
         nullable=True
     )
     market_cap = db.Column(
-        db.Integer,
+        db.BigInteger,
         nullable=True
     )
     created_at = db.Column(
@@ -43,3 +53,12 @@ class Token(db.Model):
     
     def __repr__(self):
         return '<Token {}>'.format(self.name)
+    
+    def json_format(self):
+        return {
+            'name': self.name,
+            'unit_name': self.unit_name,
+            'description': self.description,
+            'total_supply': self.total_supply,
+            'market_cap': self.market_cap
+        }

@@ -20,14 +20,13 @@ def store():
     unit_name = data.get('unit_name')
     description = data.get('description')
     total_supply = data.get('total_supply')
-    market_cap = data.get('market_cap')
     
     token = Token(
         name=name,
         unit_name=unit_name,
         description=description,
         total_supply=total_supply,
-        market_cap=market_cap
+        market_cap=0
     )
     db.session.add(token)
     db.session.commit()

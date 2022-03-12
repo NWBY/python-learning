@@ -1,8 +1,8 @@
 attrs==21.4.0
 click==8.0.3
 coverage==6.3.2
--e git+ssh://git@github.com/NWBY/python-learning.git@116ef9b1aa1a90f0cf1de3059f4093fd0eb10367#egg=distroly&subdirectory=basic-api
 Flask==2.0.2
+Flask-Cors==3.0.10
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
 iniconfig==1.1.1
@@ -11,6 +11,7 @@ Jinja2==3.0.3
 MarkupSafe==2.0.1
 packaging==21.3
 pluggy==1.0.0
+psycopg2==2.8.6
 py==1.11.0
 pyparsing==3.0.7
 pytest==7.0.1

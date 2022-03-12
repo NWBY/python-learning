@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
+
 import os
 
 db = SQLAlchemy()
@@ -12,6 +14,7 @@ def init_app():
         app.config.from_object('config.DevConfig')
     
     db.init_app(app)
+    CORS(app)
     
     with app.app_context():
         # Register routes    

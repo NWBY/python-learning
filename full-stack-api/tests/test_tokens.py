@@ -57,4 +57,5 @@ def test_update(app, client):
     
     assert res.status_code == 200
     assert resJson['name'] == 'Bitcoin'
+    assert resJson['description'] == updated_description
     

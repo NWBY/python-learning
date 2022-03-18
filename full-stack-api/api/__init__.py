@@ -15,6 +15,7 @@ def init_app():
         app.config.from_object('config.DevConfig')
     
     db.init_app(app)
+    make_celery(app)
     CORS(app)
     
     with app.app_context():
